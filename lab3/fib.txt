@@ -1,0 +1,21 @@
+.ORIG x3000
+         ADD R7,R5,#1           
+         ADD R0,R0,#-1           
+         BRz STOP              
+         ADD R1,R5,#1            
+         ADD R2,R5,#1
+         LD R4, MOD
+AGAIN    ADD R3,R7,#0
+         ADD R7,R7,R1
+         AND R7,R7,R4
+         ADD R1,R2,R2
+         ADD R2,R3,#0
+         ADD R0,R0,#-1
+         BRp  AGAIN
+STOP     HALT
+MOD      .FILL x3FF
+         .FILL #930
+         .FILL #18
+         .FILL #418
+         .FILL #354
+         .END
